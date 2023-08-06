@@ -26,31 +26,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.59" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HORGUIDE4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.66" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HORGUIDE5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.69" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HORGUIDE6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/HORGUIDE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -69,10 +83,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.32" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/VERGUIDE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VERGUIDE4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -84,7 +105,7 @@
         android:layout_height="0dp"
         android:background="@drawable/roundedcorners"
         app:layout_constraintBottom_toTopOf="@+id/HORGUIDE2"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
 
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
@@ -202,11 +223,11 @@
         android:text="% You Win: "
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -217,7 +238,7 @@
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
         app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserChances"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textviewLabelUserChances"
         app:layout_constraintTop_toTopOf="@+id/textviewLabelUserChances" />
@@ -229,11 +250,11 @@
         android:text="% You Lose: "
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/VERGUIDE2"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintStart_toEndOf="@+id/VERGUIDE3"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -244,7 +265,7 @@
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
         app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserChancesLose"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/textviewLabelUserChancesLose"
         app:layout_constraintTop_toTopOf="@+id/textviewLabelUserChancesLose" />
@@ -253,12 +274,12 @@
         android:id="@+id/buttonWin"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE8"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/buttonDraw"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/happy_face_img" />
 
@@ -267,13 +288,13 @@
         android:id="@+id/buttonDraw"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE8"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonLose"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonWin"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/neutral_face_img" />
 
@@ -283,12 +304,12 @@
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/HORGUIDE6"
+        app:layout_constraintBottom_toBottomOf="@+id/HORGUIDE8"
 
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonDraw"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/sad_face_img3" />
 
@@ -300,10 +321,10 @@
         android:text="Win"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
         app:layout_constraintEnd_toEndOf="@+id/buttonWin"
         app:layout_constraintStart_toStartOf="@+id/buttonWin"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE6" />
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
 
     <TextView
         android:id="@+id/textViewLabelButtonDraw"
@@ -313,10 +334,10 @@
         android:text="Draw"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
         app:layout_constraintEnd_toEndOf="@+id/buttonDraw"
         app:layout_constraintStart_toStartOf="@+id/buttonDraw"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE6" />
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
 
     <TextView
         android:id="@+id/textViewLabelButtonLose"
@@ -326,10 +347,10 @@
         android:text="Lose"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
         app:layout_constraintEnd_toEndOf="@+id/buttonLose"
         app:layout_constraintStart_toStartOf="@+id/buttonLose"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE6" />
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
 
     <CheckBox
         android:id="@+id/checkBoxFIDE"
@@ -338,11 +359,11 @@
         android:text="FIDE"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/checkBoxUSCF"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/VERGUIDE2"
-        app:layout_constraintTop_toTopOf="@+id/HORGUIDE2" />
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinnerLabel" />
 
     <CheckBox
         android:id="@+id/checkBoxOther"
@@ -352,7 +373,7 @@
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
         app:layout_constraintBottom_toBottomOf="@+id/checkBoxFIDE"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0.862"
         app:layout_constraintStart_toEndOf="@+id/checkBoxFIDE"
         app:layout_constraintTop_toTopOf="@+id/checkBoxFIDE"
@@ -365,10 +386,70 @@
         android:text="USCF"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxFIDE"
-        app:layout_constraintStart_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxFIDE" />
+
+<!--    <Spinner-->
+<!--        android:id="@+id/spinnerKCoefficients"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:gravity="center"-->
+<!--        android:spinnerMode="dropdown"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/textViewSpinnerLabel"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textViewSpinnerLabel"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/textViewSpinnerLabel" />-->
+
+    <TextView
+        android:id="@+id/textViewSpinnerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K-Value: "
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE2"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/spinnerroundedcorners"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
+
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE3">
+
+        <Spinner
+            android:id="@+id/spinnerKCoefficients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:spinnerMode="dropdown" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/spinner_arrow" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

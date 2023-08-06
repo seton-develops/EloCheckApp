@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <int-array name="UCSD_K_array">
+    <string-array name="FIDE_K_array">
         <item>32</item>
         <item>20</item>
         <item>10</item>
-    </int-array>
+    </string-array>
 </resources>

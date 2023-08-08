@@ -8,6 +8,8 @@
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/roundedcorners.xml" value="0.2335" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/spinnerroundedcorners.xml" value="0.314" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/activity_updated_elo.xml" value="0.425" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/fragment_updated_elo.xml" value="0.425" />
       </map>
     </option>
   </component>

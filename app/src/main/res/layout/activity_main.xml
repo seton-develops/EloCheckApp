@@ -391,17 +391,7 @@
         app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxFIDE" />
 
-<!--    <Spinner-->
-<!--        android:id="@+id/spinnerKCoefficients"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:background="@color/white"-->
-<!--        android:gravity="center"-->
-<!--        android:spinnerMode="dropdown"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/textViewSpinnerLabel"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/textViewSpinnerLabel"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/textViewSpinnerLabel" />-->
+
 
     <TextView
         android:id="@+id/textViewSpinnerLabel"

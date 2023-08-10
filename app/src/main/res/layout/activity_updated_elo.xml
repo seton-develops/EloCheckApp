@@ -7,18 +7,70 @@
     android:background="@drawable/etroundedcorners"
     tools:context=".UpdatedEloActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
 
-    <Button
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutHORGUIDE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+<!--    add padding left and right-->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background = "@drawable/etroundedcorners"
+        android:text="Dismiss"
+        android:textColor="@color/black"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/eloLayoutHORGUIDE7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintEnd_toStartOf="@+id/buttonAccept"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayoutOpponentElo"
+        app:layout_constraintTop_toTopOf="@+id/eloLayoutHORGUIDE6" />
 
     <TextView
         android:id="@+id/textViewUpdatedUserEloLabel"
@@ -33,45 +85,107 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.086" />
 
-    <TextView
-        android:id="@+id/textViewUpdatedUserElo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1500"
-        android:textSize="48sp"
-        app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUpdatedOpponentEloLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUpdatedUserEloLabel"
-        app:layout_constraintVertical_bias="0.815" />
 
     <TextView
         android:id="@+id/textViewUpdatedOpponentEloLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rival's (NEW) ELO:"
+        android:text="Opponents's (NEW) ELO:"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUpdatedOpponentElo"
+        app:layout_constraintBottom_toTopOf="@+id/eloLayoutHORGUIDE5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintTop_toTopOf="@+id/eloLayoutHORGUIDE4"
+        app:layout_constraintVertical_bias="0.5" />
 
-    <TextView
-        android:id="@+id/textViewUpdatedOpponentElo"
+    <Button
+        android:id="@+id/buttonAccept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1500"
-        android:textSize="48sp"
+        android:text="Accept"
+        android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCancel"
+
+        app:layout_constraintEnd_toEndOf="@+id/linearLayoutOpponentElo"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintTop_toTopOf="@+id/buttonCancel" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutUserElo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/eloLayoutHORGUIDE3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eloLayoutHORGUIDE2">
+
+        <TextView
+            android:id="@+id/textViewUpdatedUserElo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1500"
+            android:textSize="48sp"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.613" />
+
+        <TextView
+            android:id="@+id/textViewUpdatedUserEloPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(+7)"
+            android:textSize="48sp"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintTop_toTopOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintVertical_bias="0.613" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutOpponentElo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/eloLayoutHORGUIDE6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eloLayoutHORGUIDE5">
+
+        <TextView
+            android:id="@+id/textViewUpdatedOpponentElo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1500"
+            android:textSize="48sp"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.613" />
+
+        <TextView
+            android:id="@+id/textViewUpdatedOpponentEloPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(+7)"
+            android:textSize="48sp"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintTop_toTopOf="@+id/textViewUpdatedOpponentElo"
+            app:layout_constraintVertical_bias="0.613" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

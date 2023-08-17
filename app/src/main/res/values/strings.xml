@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Elo Check</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="user_elo_string">user_elo</string>
+    <string name="opponent_elo_string">opponent_elo</string>
+    <string name="k_coefficient_string">k_coefficient</string>
+    <string name="organization_name_string">organization</string>
+
+
 </resources>

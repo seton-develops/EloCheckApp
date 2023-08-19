@@ -10,5 +10,9 @@ object EloRepository {
         return UserSharedPreferences.getSharedPreferences(context)
     }
 
+    fun updateData(context: Context, eloData: EloData) {
+        return UserSharedPreferences.updateSharedPreferences(context, eloData)
+    }
+
 
 }

@@ -1,5 +1,4 @@
 package com.seton_develops.elocalculator
-import android.util.Log
 import kotlin.math.pow
 
 class EloCalculator {
@@ -15,7 +14,6 @@ class EloCalculator {
             val expectedValueUser = calculateExpectedValue(userElo, opponentElo)
 
             val updatedUserElo = userElo + kCoefficient * (result - expectedValueUser)
-            Log.i("TEST", (kCoefficient * (result - expectedValueUser)).toString())
 
             //cast to integer
             return updatedUserElo.toInt()

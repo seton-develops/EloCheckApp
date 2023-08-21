@@ -169,11 +169,12 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="number"
-            android:text="1500?"
             app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE2"
             app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/constraint_layout_VERGUIDE1"
-            app:layout_constraintTop_toTopOf="@+id/constraint_layout_HORGUIDE1" />
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_HORGUIDE1"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/editTextTextOpponentELO"
@@ -183,7 +184,6 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="number"
-            android:text="1500?"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE5"
             app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"

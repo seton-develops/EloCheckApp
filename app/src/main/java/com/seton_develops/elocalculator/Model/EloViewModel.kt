@@ -16,9 +16,6 @@ class EloViewModel(private val eloRepository: EloRepository): ViewModel() {
     }
 
     fun updateData(context: Context, eloData: EloData) {
-
-
-
         eloRepository.updateData(context,eloData)
         getData(context)
     }

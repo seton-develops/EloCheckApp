@@ -3,10 +3,7 @@ package com.seton_develops.elocalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.seton_develops.elocalculator.Model.EloData
@@ -59,19 +56,17 @@ class MainActivity : AppCompatActivity() {
 
         buttonWin = findViewById(R.id.buttonWin)
 
-        //TODO: update EloData used
+        //TODO: update kValue used
         buttonWin.setOnClickListener {
             //creates an Alert Dialog for this activity to show updated Elo Scores
-//            eloViewModel.updateData(
-//                this,
-//                EloData(
-//                    editTextUserELO.text.toString().toInt(),
-//                    editTextOpponentELO.text.toString().toInt(),
-//                    kValueIndex = 0,
-//                    organization = "FIDE"
-//                )
-//            )
-            CustomAlertDialog(this, eloViewModel)
+            CustomAlertDialog(this,
+                eloViewModel,
+                result = 1.0,
+                userElo = editTextUserELO.text.toString().toInt(),
+                opponentElo = editTextOpponentELO.text.toString().toInt(),
+                kValue = spinnerKCoefficients.selectedItem.toString().toInt()
+            )
+
         }
     }
 }

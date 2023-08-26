@@ -4,5 +4,6 @@ data class EloData(
     val userElo: Int,
     val opponentElo: Int,
     val kValueIndex: Int,
-    val organization: String?
+    val FIDECheck: Boolean,
+    val USCFCheck: Boolean
 )

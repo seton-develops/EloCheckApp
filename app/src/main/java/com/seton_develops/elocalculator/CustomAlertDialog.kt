@@ -15,13 +15,15 @@ import com.seton_develops.elocalculator.Model.EloViewModel
 
 object CustomAlertDialog {
 
-    //TODO: Add userUpdatedElo, OpponentUpdatedElo, UserUpdatedEloAmount, OpponentUpdatedEloAmount
+
     operator fun invoke(context: Context,
                         eloViewModel: EloViewModel,
                         result: Double,
                         userElo: Int,
                         opponentElo: Int,
-                        kValue: Int) {
+                        kValue: Int,
+                        fideCheck: Boolean,
+                        uscfCheck: Boolean) {
 
         val customDialogBuilder = AlertDialog.Builder(context)
 
@@ -76,11 +78,13 @@ object CustomAlertDialog {
 
         acceptButton.setOnClickListener {
 
+            //TODO: Update eloData here
             eloViewModel.updateData(context,
                                     EloData(newUserElo,
                                             newOpponentElo,
                                             kValueIndex = 0,
-                                            organization = "FIDE"
+                                            FIDECheck = fideCheck,
+                                            USCFCheck = uscfCheck
                                     )
             )
 
@@ -91,8 +95,7 @@ object CustomAlertDialog {
     }
 
 
-    private fun isUpdateEloScores(
-                                  result: Double,
+    private fun isUpdateEloScores(result: Double,
                                   userElo: Int,
                                   opponentElo: Int,
                                   kValue: Int): Pair<Int, Int> {

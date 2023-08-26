@@ -20,4 +20,9 @@ class EloViewModel(private val eloRepository: EloRepository): ViewModel() {
         getData(context)
     }
 
+    fun updateRadioButton(context: Context, fideCheck: Boolean, uscfCheck: Boolean) {
+        eloRepository.updateRadioGroup(context,fideCheck,uscfCheck)
+        getData(context)
+    }
+
 }

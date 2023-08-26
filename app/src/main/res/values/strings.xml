@@ -4,7 +4,10 @@
     <string name="user_elo_string">user_elo</string>
     <string name="opponent_elo_string">opponent_elo</string>
     <string name="k_coefficient_string">k_coefficient</string>
-    <string name="organization_name_string">organization</string>
+    <string name="FIDE_radio_string">FIDE_RADIO</string>
+    <string name="USCF_radio_string">USCF_RADIO</string>
+    <string name="organization_FIDE">FIDE</string>
+    <string name="organization_USCF">USCF</string>
 
 
 </resources>

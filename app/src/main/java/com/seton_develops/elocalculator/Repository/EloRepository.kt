@@ -11,7 +11,11 @@ object EloRepository {
     }
 
     fun updateData(context: Context, eloData: EloData) {
-        return UserSharedPreferences.updateSharedPreferences(context, eloData)
+        UserSharedPreferences.updateSharedPreferences(context, eloData)
+    }
+
+    fun updateRadioGroup(context: Context, fideCheck: Boolean, uscfCheck: Boolean) {
+        UserSharedPreferences.updateRadioGroup(context, fideCheck, uscfCheck)
     }
 
 

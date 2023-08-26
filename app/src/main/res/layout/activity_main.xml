@@ -70,7 +70,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/VERGUIDE1"
         android:layout_width="wrap_content"
@@ -352,46 +351,48 @@
         app:layout_constraintStart_toStartOf="@+id/buttonLose"
         app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
 
-    <CheckBox
-        android:id="@+id/checkBoxFIDE"
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FIDE"
-        android:textColor="@color/white"
-        app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE3"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE5"
         app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
-        app:layout_constraintTop_toTopOf="@+id/textViewSpinnerLabel" />
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE2">
 
-    <CheckBox
-        android:id="@+id/checkBoxOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Other"
-        android:textColor="@color/white"
-        app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBoxFIDE"
-        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toEndOf="@+id/checkBoxFIDE"
-        app:layout_constraintTop_toTopOf="@+id/checkBoxFIDE"
-        app:layout_constraintVertical_bias="0.0" />
+        <!--adding a radio button -->
+        <RadioButton
+            android:id="@+id/radio_FIDE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="@string/organization_FIDE"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-    <CheckBox
-        android:id="@+id/checkBoxUSCF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USCF"
-        android:textColor="@color/white"
-        app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
-        app:layout_constraintEnd_toEndOf="@+id/checkBoxFIDE"
-        app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxFIDE" />
+        <!--adding a radio button -->
+        <RadioButton
+            android:id="@+id/radio_USCF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="@string/organization_USCF"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textViewSpinnerLabel"
@@ -410,6 +411,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         android:background="@drawable/rounded_corners_1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
@@ -424,10 +426,10 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
+            android:padding="8dp"
             android:spinnerMode="dropdown" />
 
         <ImageView
@@ -440,6 +442,8 @@
             android:src="@drawable/spinner_arrow" />
 
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -216,7 +216,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textviewLabelUserChances"
+        android:id="@+id/textviewLabelUserPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="% You Win: "
@@ -230,20 +230,20 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/textviewLabelUserChances2"
+        android:id="@+id/textviewUserPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0%"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserChances"
+        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserPercentage"
         app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textviewLabelUserChances"
-        app:layout_constraintTop_toTopOf="@+id/textviewLabelUserChances" />
+        app:layout_constraintStart_toEndOf="@+id/textviewLabelUserPercentage"
+        app:layout_constraintTop_toTopOf="@+id/textviewLabelUserPercentage" />
 
     <TextView
-        android:id="@+id/textviewLabelUserChancesLose"
+        android:id="@+id/textviewLabelOpponentPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="% You Lose: "
@@ -257,17 +257,17 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/textviewLabelUserChancesLose2"
+        android:id="@+id/textviewOpponentPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0%"
         android:textColor="@color/white"
         app:fontFamily="@font/bungee"
-        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserChancesLose"
+        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelOpponentPercentage"
         app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/textviewLabelUserChancesLose"
-        app:layout_constraintTop_toTopOf="@+id/textviewLabelUserChancesLose" />
+        app:layout_constraintStart_toEndOf="@id/textviewLabelOpponentPercentage"
+        app:layout_constraintTop_toTopOf="@+id/textviewLabelOpponentPercentage" />
 
     <ImageView
         android:id="@+id/buttonWin"

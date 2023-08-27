@@ -11,6 +11,7 @@ import com.seton_develops.elocalculator.DataSource.UserSharedPreferences
 import com.seton_develops.elocalculator.Model.EloViewModel
 import com.seton_develops.elocalculator.Model.EloViewModelFactory
 import com.seton_develops.elocalculator.Repository.EloRepository
+import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,13 +20,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var spinnerKCoefficients: Spinner
     private lateinit var editTextUserELO: EditText
     private lateinit var editTextOpponentELO: EditText
+    private lateinit var textViewUserChances: TextView
+    private lateinit var textViewOpponentChances: TextView
     private lateinit var buttonWin: ImageView
     private lateinit var radioButtonFIDE: RadioButton
     private lateinit var radioButtonUSCF: RadioButton
-
-
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +34,13 @@ class MainActivity : AppCompatActivity() {
 
         editTextUserELO = findViewById(R.id.editTextUserELO)
         editTextOpponentELO = findViewById(R.id.editTextTextOpponentELO)
+        textViewUserChances = findViewById(R.id.textviewUserPercentage)
+        textViewOpponentChances = findViewById(R.id.textviewOpponentPercentage)
         radioButtonFIDE = findViewById((R.id.radio_FIDE))
         radioButtonUSCF = findViewById((R.id.radio_USCF))
         buttonWin = findViewById(R.id.buttonWin)
+
+
 
         spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
         val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
@@ -55,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         spinnerAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
 
-
         val eloRepository = EloRepository
         val eloDataViewModelFactory = EloViewModelFactory(eloRepository)
 
@@ -67,6 +69,19 @@ class MainActivity : AppCompatActivity() {
             //TODO: add other fields from eloData
             editTextUserELO.setText(eloData.userElo.toString())
             editTextOpponentELO.setText(eloData.opponentElo.toString())
+
+            var userPercent =
+                EloCalculator.calculateExpectedValue(eloData.userElo.toString().toInt(),
+                    eloData.opponentElo.toString().toInt())
+
+            userPercent = (userPercent * 100.0)
+            userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
+
+            Toast.makeText(this, userPercent.toString(),Toast.LENGTH_SHORT).show()
+
+
+            textViewUserChances.setText( "$userPercent%")
+            textViewOpponentChances.setText("${((100-userPercent) * 100).roundToInt() / 100.0}%")
 
             if (eloData.FIDECheck) {
                 radioButtonFIDE.isChecked = true
@@ -94,6 +109,38 @@ class MainActivity : AppCompatActivity() {
                 kIndex = spinnerKCoefficients.selectedItemPosition
             )
         }
+
+
+
+        radioButtonFIDE.setOnClickListener {
+            eloViewModel.updateRadioButton(this,
+                fideCheck = true,
+                uscfCheck = false,
+                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
+
+            spinnerKCoefficients.adapter = spinnerAdapter
+        }
+
+        radioButtonUSCF.setOnClickListener {
+            eloViewModel.updateRadioButton(this,
+                fideCheck = false,
+                uscfCheck = true,
+                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
+
+            spinnerKCoefficients.adapter = spinnerAdapter2
+        }
+
+
+
+
+    }
+
+
+}
+
+
+
+
 
 //        spinnerKCoefficients.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 //            override fun onItemSelected(
@@ -125,25 +172,3 @@ class MainActivity : AppCompatActivity() {
 //            }
 //
 //        }
-
-        //TODO: Save index used for kValue
-        radioButtonFIDE.setOnClickListener {
-            eloViewModel.updateRadioButton(this,
-                fideCheck = true,
-                uscfCheck = false,
-                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
-
-            spinnerKCoefficients.adapter = spinnerAdapter
-        }
-
-        radioButtonUSCF.setOnClickListener {
-            eloViewModel.updateRadioButton(this,
-                fideCheck = false,
-                uscfCheck = true,
-                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
-
-            spinnerKCoefficients.adapter = spinnerAdapter2
-        }
-    }
-}
-

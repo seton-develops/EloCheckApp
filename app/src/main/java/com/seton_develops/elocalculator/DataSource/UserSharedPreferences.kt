@@ -10,6 +10,7 @@ object UserSharedPreferences {
 
     private lateinit var sharedPref: SharedPreferences
 
+
     fun getSharedPreferences(context: Context): EloData {
         sharedPref = context.getSharedPreferences(prefString, Context.MODE_PRIVATE)
 
@@ -37,12 +38,17 @@ object UserSharedPreferences {
         }
     }
 
-    fun updateRadioGroup(context: Context, fideCheck: Boolean, uscfCheck: Boolean) {
+    fun updateRadioGroup(context: Context,
+                         fideCheck: Boolean,
+                         uscfCheck: Boolean,
+                         kCoefficientIndex: Int) {
+
         sharedPref = context.getSharedPreferences(prefString, Context.MODE_PRIVATE)
 
         with (sharedPref.edit()) {
             putBoolean(context.getString(R.string.FIDE_radio_string),fideCheck)
             putBoolean(context.getString(R.string.USCF_radio_string), uscfCheck)
+            putInt(context.getString(R.string.k_coefficient_string), kCoefficientIndex)
             apply()
         }
 

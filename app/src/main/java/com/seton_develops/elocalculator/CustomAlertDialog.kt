@@ -23,7 +23,8 @@ object CustomAlertDialog {
                         opponentElo: Int,
                         kValue: Int,
                         fideCheck: Boolean,
-                        uscfCheck: Boolean) {
+                        uscfCheck: Boolean,
+                        kIndex: Int) {
 
         val customDialogBuilder = AlertDialog.Builder(context)
 
@@ -82,7 +83,7 @@ object CustomAlertDialog {
             eloViewModel.updateData(context,
                                     EloData(newUserElo,
                                             newOpponentElo,
-                                            kValueIndex = 0,
+                                            kValueIndex = kIndex,
                                             FIDECheck = fideCheck,
                                             USCFCheck = uscfCheck
                                     )

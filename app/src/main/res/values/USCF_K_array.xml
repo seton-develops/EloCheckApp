@@ -2,7 +2,7 @@
 <resources>
     <string-array name="UCSF_K_array">
         <item>32</item>
-        <item>20</item>
-        <item>10</item>
+        <item>24</item>
+        <item>16</item>
     </string-array>
 </resources>

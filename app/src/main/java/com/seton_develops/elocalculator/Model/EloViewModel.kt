@@ -6,7 +6,10 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.seton_develops.elocalculator.DataSource.UserSharedPreferences
 import com.seton_develops.elocalculator.Repository.EloRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class EloViewModel(private val eloRepository: EloRepository): ViewModel() {
     val eloData: MutableLiveData<EloData> = MutableLiveData()
@@ -20,8 +23,15 @@ class EloViewModel(private val eloRepository: EloRepository): ViewModel() {
         getData(context)
     }
 
-    fun updateRadioButton(context: Context, fideCheck: Boolean, uscfCheck: Boolean) {
-        eloRepository.updateRadioGroup(context,fideCheck,uscfCheck)
+    fun updateRadioButton(context: Context,
+                          fideCheck: Boolean,
+                          uscfCheck: Boolean,
+                          kCoefficientIndex: Int) {
+
+
+        eloRepository.updateRadioGroup(context,fideCheck,uscfCheck, kCoefficientIndex)
+
+
         getData(context)
     }
 

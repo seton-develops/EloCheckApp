@@ -3,9 +3,11 @@ package com.seton_develops.elocalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.seton_develops.elocalculator.DataSource.UserSharedPreferences
 import com.seton_develops.elocalculator.Model.EloViewModel
 import com.seton_develops.elocalculator.Model.EloViewModelFactory
 import com.seton_develops.elocalculator.Repository.EloRepository
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var radioButtonUSCF: RadioButton
 
 
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,6 +37,24 @@ class MainActivity : AppCompatActivity() {
         editTextOpponentELO = findViewById(R.id.editTextTextOpponentELO)
         radioButtonFIDE = findViewById((R.id.radio_FIDE))
         radioButtonUSCF = findViewById((R.id.radio_USCF))
+        buttonWin = findViewById(R.id.buttonWin)
+
+        spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
+        val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            this,
+            R.array.FIDE_K_array,
+            android.R.layout.simple_spinner_item
+        )
+
+        val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            this,
+            R.array.UCSF_K_array,
+            android.R.layout.simple_spinner_item
+        )
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+
 
         val eloRepository = EloRepository
         val eloDataViewModelFactory = EloViewModelFactory(eloRepository)
@@ -46,24 +70,15 @@ class MainActivity : AppCompatActivity() {
 
             if (eloData.FIDECheck) {
                 radioButtonFIDE.isChecked = true
+                spinnerKCoefficients.adapter = spinnerAdapter
+                spinnerKCoefficients.setSelection(eloData.kValueIndex)
             }
             else {
                 radioButtonUSCF.isChecked = true
+                spinnerKCoefficients.adapter = spinnerAdapter2
+                spinnerKCoefficients.setSelection(eloData.kValueIndex)
             }
         })
-
-
-        spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
-        val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this,
-            R.array.FIDE_K_array,
-            android.R.layout.simple_spinner_item
-        )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerKCoefficients.adapter = spinnerAdapter
-
-
-        buttonWin = findViewById(R.id.buttonWin)
 
 
         buttonWin.setOnClickListener {
@@ -75,17 +90,59 @@ class MainActivity : AppCompatActivity() {
                 opponentElo = editTextOpponentELO.text.toString().toInt(),
                 kValue = spinnerKCoefficients.selectedItem.toString().toInt(),
                 radioButtonFIDE.isChecked,
-                radioButtonUSCF.isChecked
+                radioButtonUSCF.isChecked,
+                kIndex = spinnerKCoefficients.selectedItemPosition
             )
         }
 
+//        spinnerKCoefficients.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//
+//
+//                if (radioButtonFIDE.isChecked) {
+//                    eloViewModel.updateRadioButton(context = this@MainActivity,
+//                        fideCheck = true,
+//                        uscfCheck = false,
+//                        kCoefficientIndex = position)
+//                }
+//                else {
+//                    eloViewModel.updateRadioButton(context = this@MainActivity,
+//                        fideCheck = false,
+//                        uscfCheck = true,
+//                        kCoefficientIndex = position)
+//
+//                }
+//
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//
+//            }
+//
+//        }
+
         //TODO: Save index used for kValue
         radioButtonFIDE.setOnClickListener {
-            eloViewModel.updateRadioButton(this, fideCheck = true, uscfCheck = false)
+            eloViewModel.updateRadioButton(this,
+                fideCheck = true,
+                uscfCheck = false,
+                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
+
+            spinnerKCoefficients.adapter = spinnerAdapter
         }
 
         radioButtonUSCF.setOnClickListener {
-            eloViewModel.updateRadioButton(this, fideCheck = false, uscfCheck = true)
+            eloViewModel.updateRadioButton(this,
+                fideCheck = false,
+                uscfCheck = true,
+                kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
+
+            spinnerKCoefficients.adapter = spinnerAdapter2
         }
     }
 }

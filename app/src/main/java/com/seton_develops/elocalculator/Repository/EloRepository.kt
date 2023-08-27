@@ -14,8 +14,12 @@ object EloRepository {
         UserSharedPreferences.updateSharedPreferences(context, eloData)
     }
 
-    fun updateRadioGroup(context: Context, fideCheck: Boolean, uscfCheck: Boolean) {
-        UserSharedPreferences.updateRadioGroup(context, fideCheck, uscfCheck)
+    fun updateRadioGroup(context: Context,
+                         fideCheck: Boolean,
+                         uscfCheck: Boolean,
+                         kCoefficientIndex: Int) {
+
+        UserSharedPreferences.updateRadioGroup(context, fideCheck, uscfCheck, kCoefficientIndex)
     }
 
 

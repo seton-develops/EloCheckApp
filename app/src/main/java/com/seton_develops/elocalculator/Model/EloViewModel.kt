@@ -35,4 +35,14 @@ class EloViewModel(private val eloRepository: EloRepository): ViewModel() {
         getData(context)
     }
 
+    fun updateUserTextView(context: Context, userElo: Int) {
+        eloRepository.updateUserTextView(context, userElo)
+    }
+
+    fun updateOpponentTextView(context: Context, OpponentElo: Int) {
+        eloRepository.updateOpponentTextView(context, OpponentElo)
+    }
+
+
+
 }

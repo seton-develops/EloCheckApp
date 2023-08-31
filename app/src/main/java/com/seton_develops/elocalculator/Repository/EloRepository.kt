@@ -22,5 +22,13 @@ object EloRepository {
         UserSharedPreferences.updateRadioGroup(context, fideCheck, uscfCheck, kCoefficientIndex)
     }
 
+    fun updateUserTextView(context: Context, userElo: Int) {
+        UserSharedPreferences.updateUserTextView(context, userElo)
+    }
+
+    fun updateOpponentTextView(context: Context, OpponentElo: Int) {
+        UserSharedPreferences.updateOpponentTextView(context, OpponentElo)
+    }
+
 
 }

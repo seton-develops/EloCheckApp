@@ -54,4 +54,24 @@ object UserSharedPreferences {
 
     }
 
+    fun updateUserTextView(context: Context, userElo: Int) {
+        sharedPref = context.getSharedPreferences(prefString, Context.MODE_PRIVATE)
+
+        with (sharedPref.edit()) {
+            putInt(context.getString(R.string.user_elo_string), userElo)
+            apply()
+        }
+
+    }
+
+    fun updateOpponentTextView(context: Context, OpponentElo: Int) {
+        sharedPref = context.getSharedPreferences(prefString, Context.MODE_PRIVATE)
+
+        with (sharedPref.edit()) {
+            putInt(context.getString(R.string.opponent_elo_string), OpponentElo)
+            apply()
+        }
+
+    }
+
 }

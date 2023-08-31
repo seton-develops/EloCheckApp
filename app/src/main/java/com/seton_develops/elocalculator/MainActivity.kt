@@ -3,7 +3,11 @@ package com.seton_develops.elocalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +15,8 @@ import com.seton_develops.elocalculator.DataSource.UserSharedPreferences
 import com.seton_develops.elocalculator.Model.EloViewModel
 import com.seton_develops.elocalculator.Model.EloViewModelFactory
 import com.seton_develops.elocalculator.Repository.EloRepository
+import java.sql.Time
+import java.util.*
 import kotlin.math.roundToInt
 
 
@@ -77,7 +83,6 @@ class MainActivity : AppCompatActivity() {
             userPercent = (userPercent * 100.0)
             userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
 
-            Toast.makeText(this, userPercent.toString(),Toast.LENGTH_SHORT).show()
 
 
             textViewUserChances.setText( "$userPercent%")
@@ -132,7 +137,62 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        editTextOpponentELO.setOnEditorActionListener{view, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE ||
+                keyEvent == null ||
+                keyEvent.keyCode == KeyEvent.KEYCODE_ENTER) {
 
+                val currValue = editTextOpponentELO.text.toString().toInt()
+                eloViewModel.updateOpponentTextView(this@MainActivity, currValue)
+
+
+                val (userPercent,oppPercent) = updatePercentages(editTextUserELO.text.toString().toInt(),
+                    currValue)
+
+                textViewUserChances.setText(userPercent)
+                textViewOpponentChances.setText(oppPercent)
+
+
+                true
+            }
+            false
+        }
+
+        editTextUserELO.setOnEditorActionListener{view, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE ||
+                keyEvent == null ||
+                keyEvent.keyCode == KeyEvent.KEYCODE_ENTER) {
+
+                val currValue = editTextUserELO.text.toString().toInt()
+                eloViewModel.updateUserTextView(this@MainActivity,
+                                                currValue)
+
+                val (userPercent,oppPercent) = updatePercentages(currValue,
+                                                            editTextOpponentELO.text.toString().toInt())
+
+                textViewUserChances.setText(userPercent)
+                textViewOpponentChances.setText(oppPercent)
+
+
+                true
+            }
+            false
+        }
+
+
+
+
+
+    }
+
+    fun updatePercentages(userElo: Int, opponentElo: Int): Pair<String, String> {
+        var userPercent =
+            EloCalculator.calculateExpectedValue(userElo, opponentElo)
+
+        userPercent = (userPercent * 100.0)
+        userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
+
+        return Pair(userPercent.toString(),(((100-userPercent) * 100).roundToInt() / 100.0).toString())
     }
 
 
@@ -142,33 +202,3 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        spinnerKCoefficients.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-//
-//
-//                if (radioButtonFIDE.isChecked) {
-//                    eloViewModel.updateRadioButton(context = this@MainActivity,
-//                        fideCheck = true,
-//                        uscfCheck = false,
-//                        kCoefficientIndex = position)
-//                }
-//                else {
-//                    eloViewModel.updateRadioButton(context = this@MainActivity,
-//                        fideCheck = false,
-//                        uscfCheck = true,
-//                        kCoefficientIndex = position)
-//
-//                }
-//
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//
-//            }
-//
-//        }

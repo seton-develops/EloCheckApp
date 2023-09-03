@@ -3,25 +3,21 @@ package com.seton_develops.elocalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.KeyEvent
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.seton_develops.elocalculator.DataSource.UserSharedPreferences
 import com.seton_develops.elocalculator.Model.EloViewModel
 import com.seton_develops.elocalculator.Model.EloViewModelFactory
 import com.seton_develops.elocalculator.Repository.EloRepository
-import java.sql.Time
-import java.util.*
+import java.lang.IllegalArgumentException
 import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
 
+    protected var isFideCheck = true
 
     private lateinit var spinnerKCoefficients: Spinner
     private lateinit var editTextUserELO: EditText
@@ -45,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         radioButtonFIDE = findViewById((R.id.radio_FIDE))
         radioButtonUSCF = findViewById((R.id.radio_USCF))
         buttonWin = findViewById(R.id.buttonWin)
-
 
 
         spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
@@ -72,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         eloViewModel.getData(this)
 
         eloViewModel.eloData.observe(this, Observer {eloData ->
-            //TODO: add other fields from eloData
             editTextUserELO.setText(eloData.userElo.toString())
             editTextOpponentELO.setText(eloData.opponentElo.toString())
 
@@ -83,36 +77,56 @@ class MainActivity : AppCompatActivity() {
             userPercent = (userPercent * 100.0)
             userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
 
-
-
-            textViewUserChances.setText( "$userPercent%")
-            textViewOpponentChances.setText("${((100-userPercent) * 100).roundToInt() / 100.0}%")
+            textViewUserChances.text =  "$userPercent%"
+            textViewOpponentChances.text = "${((100-userPercent) * 100).roundToInt() / 100.0}%"
 
             if (eloData.FIDECheck) {
                 radioButtonFIDE.isChecked = true
                 spinnerKCoefficients.adapter = spinnerAdapter
                 spinnerKCoefficients.setSelection(eloData.kValueIndex)
+
             }
             else {
                 radioButtonUSCF.isChecked = true
                 spinnerKCoefficients.adapter = spinnerAdapter2
                 spinnerKCoefficients.setSelection(eloData.kValueIndex)
+
             }
+
+
         })
+
+
+
 
 
         buttonWin.setOnClickListener {
             //creates an Alert Dialog for this activity to show updated Elo Scores
-            CustomAlertDialog(this,
-                eloViewModel,
-                result = 1.0,
-                userElo = editTextUserELO.text.toString().toInt(),
-                opponentElo = editTextOpponentELO.text.toString().toInt(),
-                kValue = spinnerKCoefficients.selectedItem.toString().toInt(),
-                radioButtonFIDE.isChecked,
-                radioButtonUSCF.isChecked,
-                kIndex = spinnerKCoefficients.selectedItemPosition
-            )
+            val userValue = editTextUserELO.text.toString().toInt()
+            val oppValue = editTextOpponentELO.text.toString().toInt()
+
+            if (radioButtonUSCF.isChecked) {
+                isFideCheck = false
+            }
+
+            if (!checkInputRequirements(userValue, oppValue)) {
+                Toast.makeText(this,
+                    "Rating does not meet the minimum Elo for the selected organization",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                CustomAlertDialog(
+                    this,
+                    eloViewModel,
+                    result = 1.0,
+                    userElo = userValue,
+                    opponentElo = oppValue,
+                    kValue = spinnerKCoefficients.selectedItem.toString().toInt(),
+                    radioButtonFIDE.isChecked,
+                    radioButtonUSCF.isChecked,
+                    kIndex = spinnerKCoefficients.selectedItemPosition
+                )
+            }
         }
 
 
@@ -124,6 +138,7 @@ class MainActivity : AppCompatActivity() {
                 kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
 
             spinnerKCoefficients.adapter = spinnerAdapter
+            isFideCheck = true
         }
 
         radioButtonUSCF.setOnClickListener {
@@ -133,11 +148,12 @@ class MainActivity : AppCompatActivity() {
                 kCoefficientIndex = spinnerKCoefficients.selectedItemPosition)
 
             spinnerKCoefficients.adapter = spinnerAdapter2
+            isFideCheck = false
         }
 
 
 
-        editTextOpponentELO.setOnEditorActionListener{view, actionId, keyEvent ->
+        editTextOpponentELO.setOnEditorActionListener{ _, actionId, keyEvent ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE ||
                 keyEvent == null ||
                 keyEvent.keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -149,8 +165,8 @@ class MainActivity : AppCompatActivity() {
                 val (userPercent,oppPercent) = updatePercentages(editTextUserELO.text.toString().toInt(),
                     currValue)
 
-                textViewUserChances.setText(userPercent)
-                textViewOpponentChances.setText(oppPercent)
+                textViewUserChances.text = userPercent
+                textViewOpponentChances.text = oppPercent
 
 
                 true
@@ -158,7 +174,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-        editTextUserELO.setOnEditorActionListener{view, actionId, keyEvent ->
+        editTextUserELO.setOnEditorActionListener{ _, actionId, keyEvent ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE ||
                 keyEvent == null ||
                 keyEvent.keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -170,8 +186,8 @@ class MainActivity : AppCompatActivity() {
                 val (userPercent,oppPercent) = updatePercentages(currValue,
                                                             editTextOpponentELO.text.toString().toInt())
 
-                textViewUserChances.setText(userPercent)
-                textViewOpponentChances.setText(oppPercent)
+                textViewUserChances.text = userPercent
+                textViewOpponentChances.text = oppPercent
 
 
                 true
@@ -185,7 +201,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun updatePercentages(userElo: Int, opponentElo: Int): Pair<String, String> {
+    private fun updatePercentages(userElo: Int, opponentElo: Int): Pair<String, String> {
         var userPercent =
             EloCalculator.calculateExpectedValue(userElo, opponentElo)
 
@@ -193,6 +209,23 @@ class MainActivity : AppCompatActivity() {
         userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
 
         return Pair(userPercent.toString(),(((100-userPercent) * 100).roundToInt() / 100.0).toString())
+    }
+
+
+    private fun checkInputRequirements(userElo: Int, opponentElo: Int ): Boolean {
+        try {
+            if (isFideCheck) {
+                require(userElo >= 1000 && opponentElo >= 1000) {"FIDE Rating >= 1000"}
+            } else {
+                require(userElo >= 100 && opponentElo >= 100) {"UCSF Rating >= 100"}
+            }
+        }
+        catch (e: IllegalArgumentException) {
+            return false
+        }
+
+        return true
+
     }
 
 

@@ -79,7 +79,6 @@ object CustomAlertDialog {
 
         acceptButton.setOnClickListener {
 
-            //TODO: Update eloData here
             eloViewModel.updateData(context,
                                     EloData(newUserElo,
                                             newOpponentElo,

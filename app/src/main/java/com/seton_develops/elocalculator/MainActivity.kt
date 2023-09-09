@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.seton_develops.elocalculator.Model.EloViewModel
 import com.seton_develops.elocalculator.Model.EloViewModelFactory
 import com.seton_develops.elocalculator.Repository.EloRepository
+import com.seton_develops.elocalculator.Repository.PrivacyPolicyDialog
 import java.lang.IllegalArgumentException
 import kotlin.math.roundToInt
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editTextOpponentELO: EditText
     private lateinit var textViewUserChances: TextView
     private lateinit var textViewOpponentChances: TextView
+    private lateinit var textViewPrivacyPolicy: TextView
     private lateinit var buttonWin: ImageView
     private lateinit var radioButtonFIDE: RadioButton
     private lateinit var radioButtonUSCF: RadioButton
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         editTextOpponentELO = findViewById(R.id.editTextTextOpponentELO)
         textViewUserChances = findViewById(R.id.textviewUserPercentage)
         textViewOpponentChances = findViewById(R.id.textviewOpponentPercentage)
+        textViewPrivacyPolicy = findViewById(R.id.textViewPrivacyPolicy)
         radioButtonFIDE = findViewById((R.id.radio_FIDE))
         radioButtonUSCF = findViewById((R.id.radio_USCF))
         buttonWin = findViewById(R.id.buttonWin)
@@ -77,8 +80,8 @@ class MainActivity : AppCompatActivity() {
             userPercent = (userPercent * 100.0)
             userPercent = (userPercent * 100.0).roundToInt() / 100.0 //Rounds to 2 decimal places
 
-            textViewUserChances.text =  "$userPercent%"
-            textViewOpponentChances.text = "${((100-userPercent) * 100).roundToInt() / 100.0}%"
+            textViewUserChances.text =  "$userPercent"
+            textViewOpponentChances.text = "${((100-userPercent) * 100).roundToInt() / 100.0}"
 
             if (eloData.FIDECheck) {
                 radioButtonFIDE.isChecked = true
@@ -97,7 +100,9 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-
+        textViewPrivacyPolicy.setOnClickListener {
+            PrivacyPolicyDialog(this)
+        }
 
 
         buttonWin.setOnClickListener {

@@ -8,6 +8,7 @@
     <string name="USCF_radio_string">USCF_RADIO</string>
     <string name="organization_FIDE">FIDE</string>
     <string name="organization_USCF">USCF</string>
+    <string name="privacy_policy">This app (EloCheck) does not collect user information in any way. Any data used for calculating Elo scores is stored locally on your phone with no way for us to access it. \n\nThis is our way to give back to the chess community. Please enjoy</string>
 
 
 </resources>

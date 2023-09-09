@@ -1,6 +1,7 @@
 package com.seton_develops.elocalculator
 
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -21,12 +22,18 @@ class MainActivity : AppCompatActivity() {
     protected var isFideCheck = true
 
     private lateinit var spinnerKCoefficients: Spinner
+
     private lateinit var editTextUserELO: EditText
     private lateinit var editTextOpponentELO: EditText
+
     private lateinit var textViewUserChances: TextView
     private lateinit var textViewOpponentChances: TextView
     private lateinit var textViewPrivacyPolicy: TextView
+
     private lateinit var buttonWin: ImageView
+    private lateinit var buttonDraw: ImageView
+    private lateinit var buttonLose: ImageView
+
     private lateinit var radioButtonFIDE: RadioButton
     private lateinit var radioButtonUSCF: RadioButton
 
@@ -44,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         radioButtonFIDE = findViewById((R.id.radio_FIDE))
         radioButtonUSCF = findViewById((R.id.radio_USCF))
         buttonWin = findViewById(R.id.buttonWin)
+        buttonDraw = findViewById(R.id.buttonDraw)
+        buttonLose = findViewById(R.id.buttonLose)
 
 
         spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
@@ -124,6 +133,64 @@ class MainActivity : AppCompatActivity() {
                     this,
                     eloViewModel,
                     result = 1.0,
+                    userElo = userValue,
+                    opponentElo = oppValue,
+                    kValue = spinnerKCoefficients.selectedItem.toString().toInt(),
+                    radioButtonFIDE.isChecked,
+                    radioButtonUSCF.isChecked,
+                    kIndex = spinnerKCoefficients.selectedItemPosition
+                )
+            }
+        }
+
+        buttonDraw.setOnClickListener {
+            //creates an Alert Dialog for this activity to show updated Elo Scores
+            val userValue = editTextUserELO.text.toString().toInt()
+            val oppValue = editTextOpponentELO.text.toString().toInt()
+
+            if (radioButtonUSCF.isChecked) {
+                isFideCheck = false
+            }
+
+            if (!checkInputRequirements(userValue, oppValue)) {
+                Toast.makeText(this,
+                    "Rating does not meet the minimum Elo for the selected organization",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                CustomAlertDialog(
+                    this,
+                    eloViewModel,
+                    result = 0.5,
+                    userElo = userValue,
+                    opponentElo = oppValue,
+                    kValue = spinnerKCoefficients.selectedItem.toString().toInt(),
+                    radioButtonFIDE.isChecked,
+                    radioButtonUSCF.isChecked,
+                    kIndex = spinnerKCoefficients.selectedItemPosition
+                )
+            }
+        }
+
+        buttonLose.setOnClickListener {
+            //creates an Alert Dialog for this activity to show updated Elo Scores
+            val userValue = editTextUserELO.text.toString().toInt()
+            val oppValue = editTextOpponentELO.text.toString().toInt()
+
+            if (radioButtonUSCF.isChecked) {
+                isFideCheck = false
+            }
+
+            if (!checkInputRequirements(userValue, oppValue)) {
+                Toast.makeText(this,
+                    "Rating does not meet the minimum Elo for the selected organization",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                CustomAlertDialog(
+                    this,
+                    eloViewModel,
+                    result = 0.0,
                     userElo = userValue,
                     opponentElo = oppValue,
                     kValue = spinnerKCoefficients.selectedItem.toString().toInt(),

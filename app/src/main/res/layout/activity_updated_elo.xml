@@ -8,6 +8,20 @@
     tools:context=".UpdatedEloActivity">
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutVERGUIDE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/eloLayoutVERGUIDE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/eloLayoutHORGUIDE1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,9 +80,8 @@
         android:textColor="@color/black"
         app:fontFamily="@font/bungee"
         app:layout_constraintBottom_toTopOf="@+id/eloLayoutHORGUIDE7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonAccept"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/eloLayoutVERGUIDE1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textViewUpdatedOpponentEloLabel"
         app:layout_constraintTop_toTopOf="@+id/eloLayoutHORGUIDE6" />
 
@@ -112,8 +125,8 @@
         app:fontFamily="@font/bungee"
         app:layout_constraintBottom_toBottomOf="@+id/buttonCancel"
         app:layout_constraintEnd_toEndOf="@+id/textViewUpdatedOpponentEloLabel"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/eloLayoutVERGUIDE2"
         app:layout_constraintTop_toTopOf="@+id/buttonCancel" />
 
     <LinearLayout

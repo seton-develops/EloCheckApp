@@ -5,12 +5,21 @@
       <map>
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/etroundedcorners.xml" value="0.2335" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/etroundedcorners2.xml" value="0.2535" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/ic_white_pawn.xml" value="0.2335" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/rounded_corners_1.xml" value="0.176" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/rounded_corners_3.xml" value="0.176" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/roundedcorners.xml" value="0.2335" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable-v24/spinnerroundedcorners.xml" value="0.314" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_baseline_stars_24.xml" value="0.2215" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_clear_pawn.xml" value="0.2335" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_clear_pawn2.xml" value="0.2335" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_portablejim_chess_tile_pawn.xml" value="0.2335" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_white_pawn2.xml" value="0.2215" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_white_pawn_48.xml" value="0.3985" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/ic_white_pawn_96.xml" value="0.3985" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/drawable/rounded_corners_4.xml" value="0.176" />
-        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.31875" />
+        <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/activity_updated_elo.xml" value="0.25" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/fragment_updated_elo.xml" value="0.425" />
         <entry key="..\:/Users/Sean Tonthat/AndroidStudioProjects/EloCalculator/app/src/main/res/layout/privacy_policy.xml" value="0.4239583333333333" />

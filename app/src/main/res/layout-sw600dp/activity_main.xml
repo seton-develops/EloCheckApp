@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.EloCalculator"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.59" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HORGUIDE9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VERGUIDE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VERGUIDE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VERGUIDE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/VERGUIDE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/roundedcorners"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE2"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_HORGUIDE1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_HORGUIDE2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_HORGUIDE3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_HORGUIDE4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_HORGUIDE5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_VERGUIDE1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_layout_VERGUIDE2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <EditText
+            android:id="@+id/editTextUserELO"
+            android:drawableEnd = "@drawable/ic_clear_pawn"
+            android:paddingStart="75dp"
+            android:paddingEnd="50dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_corners_1"
+            android:drawablePadding = "8dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE2"
+            app:layout_constraintDimensionRatio="4:1"
+            app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"
+
+            app:layout_constraintStart_toStartOf="@+id/constraint_layout_VERGUIDE1"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_HORGUIDE1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/editTextTextOpponentELO"
+            android:drawablePadding = "8dp"
+            android:drawableEnd = "@drawable/ic_white_pawn"
+            android:paddingStart="75dp"
+            android:paddingEnd="50dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="4:1"
+            android:background="@drawable/rounded_corners_2"
+            android:textSize="36sp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE5"
+            app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"
+            app:layout_constraintStart_toStartOf="@+id/constraint_layout_VERGUIDE1"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_HORGUIDE4" />
+
+        <TextView
+            android:id="@+id/textviewLabelUserELO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your ELO"
+            android:textSize="48sp"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE1"
+            app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"
+            app:layout_constraintStart_toStartOf="@+id/constraint_layout_VERGUIDE1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textviewLabelOpponentELO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="48sp"
+            android:text="Opponent's ELO"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_layout_HORGUIDE4"
+            app:layout_constraintEnd_toStartOf="@+id/constraint_layout_VERGUIDE2"
+            app:layout_constraintStart_toStartOf="@+id/constraint_layout_VERGUIDE1"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout_HORGUIDE3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textviewLabelUserPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="% Win: "
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textviewUserPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/green"
+        android:textSize="48sp"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelUserPercentage"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textviewLabelUserPercentage"
+        app:layout_constraintTop_toTopOf="@+id/textviewLabelUserPercentage" />
+
+    <TextView
+        android:id="@+id/textviewLabelOpponentPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="% Lose: "
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE6"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/VERGUIDE3"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textviewOpponentPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="48sp"
+        android:textColor="@color/red"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toBottomOf="@+id/textviewLabelOpponentPercentage"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/textviewLabelOpponentPercentage"
+        app:layout_constraintTop_toTopOf="@+id/textviewLabelOpponentPercentage" />
+
+    <ImageView
+        android:id="@+id/buttonWin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE8"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDraw"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/happy_face_img" />
+
+
+    <ImageView
+        android:id="@+id/buttonDraw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE8"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLose"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonWin"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/neutral_face_img" />
+
+    <ImageView
+        android:id="@+id/buttonLose"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/HORGUIDE8"
+
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonDraw"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/sad_face_img3" />
+
+    <TextView
+        android:id="@+id/textViewLabelButtonWin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Win"
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
+        app:layout_constraintEnd_toEndOf="@+id/buttonWin"
+        app:layout_constraintStart_toStartOf="@+id/buttonWin"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
+
+    <TextView
+        android:id="@+id/textViewLabelButtonDraw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Draw"
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDraw"
+        app:layout_constraintStart_toStartOf="@+id/buttonDraw"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
+
+    <TextView
+        android:id="@+id/textViewLabelButtonLose"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Lose"
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE9"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLose"
+        app:layout_constraintStart_toStartOf="@+id/buttonLose"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE8" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE5"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE3"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE2">
+
+        <!--adding a radio button -->
+        <RadioButton
+            android:id="@+id/radio_FIDE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="@string/organization_FIDE"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <!--adding a radio button -->
+        <RadioButton
+            android:id="@+id/radio_USCF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:padding="4dp"
+            android:text="@string/organization_USCF"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewSpinnerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K-Value: "
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/bungee"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE3"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE2"
+        app:layout_constraintVertical_bias="0.95" />
+
+
+    <FrameLayout
+        android:padding="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE4"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE2"
+        app:layout_constraintStart_toStartOf="@+id/VERGUIDE1"
+        app:layout_constraintTop_toTopOf="@+id/HORGUIDE3"
+        android:background="@drawable/rounded_corners_1">
+
+        <Spinner
+            android:id="@+id/spinnerKCoefficients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:dropDownSelector="@color/black"
+            android:spinnerMode="dropdown"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/textViewPrivacyPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Privacy Policy"
+        android:textSize="11sp"
+        app:fontFamily="@font/bungee"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/HORGUIDE1"
+        app:layout_constraintEnd_toStartOf="@+id/VERGUIDE4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

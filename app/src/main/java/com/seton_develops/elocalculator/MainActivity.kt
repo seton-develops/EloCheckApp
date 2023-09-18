@@ -55,20 +55,46 @@ class MainActivity : AppCompatActivity() {
         buttonLose = findViewById(R.id.buttonLose)
 
 
-        spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
-        val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this,
-            R.array.FIDE_K_array,
-            android.R.layout.simple_spinner_item
-        )
 
-        val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this,
-            R.array.UCSF_K_array,
-            android.R.layout.simple_spinner_item
-        )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerKCoefficients = findViewById(R.id.spinnerKCoefficients)
+        var spinnerAdapter: ArrayAdapter<CharSequence>? = null
+        var spinnerAdapter2: ArrayAdapter<CharSequence>? = null
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+        if (!isTablet) {
+            spinnerAdapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.FIDE_K_array,
+                android.R.layout.simple_spinner_item
+            )
+
+            spinnerAdapter2 = ArrayAdapter.createFromResource(
+                this,
+                R.array.UCSF_K_array,
+                android.R.layout.simple_spinner_item
+            )
+
+            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
+        else {
+            spinnerAdapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.FIDE_K_array,
+                R.layout.sw600_spinner_layout
+            )
+
+            spinnerAdapter2 = ArrayAdapter.createFromResource(
+                this,
+                R.array.UCSF_K_array,
+                R.layout.sw600_spinner_layout
+            )
+
+            spinnerAdapter.setDropDownViewResource(R.layout.sw600_spinner_layout)
+            spinnerAdapter2.setDropDownViewResource(R.layout.sw600_spinner_layout)
+
+        }
 
 
         val eloRepository = EloRepository
@@ -297,6 +323,43 @@ class MainActivity : AppCompatActivity() {
         }
 
         return true
+
+    }
+
+    private fun initializeSpinnerAdapter(): Pair<ArrayAdapter<CharSequence>,ArrayAdapter<CharSequence>> {
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+        if (isTablet) {
+            val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+                this,
+                R.array.FIDE_K_array,
+                R.layout.sw600_spinner_layout
+            )
+
+            val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+                this,
+                R.array.UCSF_K_array,
+                R.layout.sw600_spinner_layout
+            )
+
+            return Pair(spinnerAdapter, spinnerAdapter2)
+        }
+
+        else { //not a tablet
+            val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+                this,
+                R.array.FIDE_K_array,
+                android.R.layout.simple_spinner_item
+            )
+
+            val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+                this,
+                R.array.UCSF_K_array,
+                android.R.layout.simple_spinner_item
+            )
+
+            return Pair(spinnerAdapter, spinnerAdapter2)
+        }
 
     }
 

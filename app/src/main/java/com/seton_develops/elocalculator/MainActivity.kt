@@ -1,7 +1,7 @@
 package com.seton_develops.elocalculator
 
 
-import android.content.pm.ActivityInfo
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -149,12 +149,8 @@ class MainActivity : AppCompatActivity() {
                 isFideCheck = false
             }
 
-            if (!checkInputRequirements(userValue, oppValue)) {
-                Toast.makeText(this,
-                    "Rating does not meet the minimum Elo for the selected organization",
-                    Toast.LENGTH_LONG).show()
-            }
-            else {
+            if (checkInputRequirements(userValue, oppValue)) {
+
                 CustomAlertDialog(
                     this,
                     eloViewModel,
@@ -178,12 +174,7 @@ class MainActivity : AppCompatActivity() {
                 isFideCheck = false
             }
 
-            if (!checkInputRequirements(userValue, oppValue)) {
-                Toast.makeText(this,
-                    "Rating does not meet the minimum Elo for the selected organization",
-                    Toast.LENGTH_LONG).show()
-            }
-            else {
+            if (checkInputRequirements(userValue, oppValue)) {
                 CustomAlertDialog(
                     this,
                     eloViewModel,
@@ -207,12 +198,8 @@ class MainActivity : AppCompatActivity() {
                 isFideCheck = false
             }
 
-            if (!checkInputRequirements(userValue, oppValue)) {
-                Toast.makeText(this,
-                    "Rating does not meet the minimum Elo for the selected organization",
-                    Toast.LENGTH_LONG).show()
-            }
-            else {
+            if (checkInputRequirements(userValue, oppValue)) {
+
                 CustomAlertDialog(
                     this,
                     eloViewModel,
@@ -294,9 +281,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-
-
     }
 
     private fun updatePercentages(userElo: Int, opponentElo: Int): Pair<String, String> {
@@ -317,8 +301,13 @@ class MainActivity : AppCompatActivity() {
             } else {
                 require(userElo >= 100 && opponentElo >= 100) {"UCSF Rating >= 100"}
             }
+
+            require(userElo <= 4000 && opponentElo <= 4000) {"Max Rating <= 4000"}
         }
         catch (e: IllegalArgumentException) {
+            Toast.makeText(this,
+                "Rating does not meet the Elo requirements for the selected organization",
+                Toast.LENGTH_LONG).show()
             return false
         }
 
@@ -326,42 +315,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initializeSpinnerAdapter(): Pair<ArrayAdapter<CharSequence>,ArrayAdapter<CharSequence>> {
 
-        val isTablet = resources.getBoolean(R.bool.isTablet)
-        if (isTablet) {
-            val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-                this,
-                R.array.FIDE_K_array,
-                R.layout.sw600_spinner_layout
-            )
-
-            val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-                this,
-                R.array.UCSF_K_array,
-                R.layout.sw600_spinner_layout
-            )
-
-            return Pair(spinnerAdapter, spinnerAdapter2)
-        }
-
-        else { //not a tablet
-            val spinnerAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-                this,
-                R.array.FIDE_K_array,
-                android.R.layout.simple_spinner_item
-            )
-
-            val spinnerAdapter2: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-                this,
-                R.array.UCSF_K_array,
-                android.R.layout.simple_spinner_item
-            )
-
-            return Pair(spinnerAdapter, spinnerAdapter2)
-        }
-
-    }
 
 
 }
